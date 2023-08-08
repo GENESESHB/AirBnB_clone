@@ -4,6 +4,7 @@ from models.base_model import BaseModel
 import json
 import os
 
+
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
