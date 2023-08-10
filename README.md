@@ -1,3 +1,4 @@
+![ AirBnB_clone project alx ](https://manilainsight.com/wp-content/uploads/2023/07/pngwing.com_.png)
 # 0x00. AirBnB clone - The console
 [0x00. AirBnB clone - The console](https://intranet.alxswe.com/projects/263)
 
