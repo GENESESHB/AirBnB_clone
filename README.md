@@ -2,38 +2,17 @@
 # 0x00. AirBnB clone - The console
 [0x00. AirBnB clone - The console](https://intranet.alxswe.com/projects/263)
 
+## Classes :cl:
 
-Classes 🆑
 AirBnB utilizes the following classes:
 
-BaseModel	FileStorage	User	State	City	Amenity	Place	Review
-PUBLIC INSTANCE ATTRIBUTES	id
-created_at
-updated_at		Inherits from BaseModel	Inherits from BaseModel	Inherits from BaseModel	Inherits from BaseModel	Inherits from BaseModel	Inherits from BaseModel
-PUBLIC INSTANCE METHODS	save
-to_dict	all
-new
-save
-reload	""	""	""	""	""	""
-PUBLIC CLASS ATTRIBUTES			email
-password
-first_name
-last_name	name	state_id
-name	name	city_id
-user_id
-name
-description
-number_rooms
-number_bathrooms
-max_guest
-price_by_night
-latitude
-longitude
-amenity_ids	place_id
-user_id
-text
-PRIVATE CLASS ATTRIBUTES		file_path
-objects						
+|     | BaseModel | FileStorage | User | State | City | Amenity | Place | Review |
+| --- | --------- | ----------- | -----| ----- | -----| ------- | ----- | ------ |
+| **PUBLIC INSTANCE ATTRIBUTES** | `id`<br>`created_at`<br>`updated_at` | | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` | Inherits from `BaseModel` |
+| **PUBLIC INSTANCE METHODS** | `save`<br>`to_dict` | `all`<br>`new`<br>`save`<br>`reload` | "" | "" | "" | "" | "" | "" |
+| **PUBLIC CLASS ATTRIBUTES** | | | `email`<br>`password`<br>`first_name`<br>`last_name`| `name` | `state_id`<br>`name` | `name` | `city_id`<br>`user_id`<br>`name`<br>`description`<br>`number_rooms`<br>`number_bathrooms`<br>`max_guest`<br>`price_by_night`<br>`latitude`<br>`longitude`<br>`amenity_ids` | `place_id`<br>`user_id`<br>`text` | 
+| **PRIVATE CLASS ATTRIBUTES** | | `file_path`<br>`objects` | | | | | | |
+
 
 # Resources
 <ul>
@@ -136,11 +115,7 @@ This method returns a dictionary representation of the instance's attributes. It
 That concludes the breakdown of the provided code. It defines a `BaseModel` class with methods for initialization, string representation, saving, and converting to a dictionary. It's likely part of a larger framework or application for managing and storing data objects.
 
 
-Storage 🛄
-The above classes are handled by the abstracted storage engine defined in the FileStorage class.
-
-Every time the backend is initialized,AirBnB instantiates an instance of FileStorage called storage. The storage object is loaded/re-loaded from any class instances stored in the JSON file file.json. As class instances are created, updated, or deleted, the storage object is used to register corresponding changes in the file.json.
-
+## Storage :baggage_claim:
 
 # my_file_storage-important
 
@@ -219,7 +194,7 @@ The `reload()` method deserializes the data from the JSON file specified by `__f
 I hope this breakdown helps you understand your code better! If you have any specific questions about certain parts of the code or would like further explanations, feel free to ask.
 
 
-Console 💻
+## Console :computer:
 # command interpreter
 
 # do_create
@@ -508,3 +483,7 @@ The code checks if the list `args` has at least four elements. If not, it means 
 ```
 The code extracts the third and fourth elements from the `args` list and assigns them to `attribute_name` and `attribute_value` respectively. Then, it retrieves the instance associated with the key `ky` from the `instances` dictionary. It uses the `setattr` function to set the specified attribute name (`attribute_name`) to the provided attribute value (`attribute_value`). Finally, the instance is saved using the `instance.save()` method.
 
+
+## Authors :black_nib:
+* ** Hassan BOUDRAA ** <[GENESESHB](https://github.com/GENESESHB)>
+* ** Fatima ** <[move7](https://github.com/move7)>
