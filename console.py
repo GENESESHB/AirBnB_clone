@@ -123,43 +123,85 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arg):
         """
         Deletes an instance based on class name and id
-        
         """
         args = arg.split()
         if len(args) < 1:
+            """
+            if we have one word after split()
+            """
             print("** class name missing **")
             return
 
         class_name = args[0]
-
+        """
+        store the arguments one in variables class_name
+        """
         if class_name not in models.storage.classes:
+            """
+            check if the class_name not in structurals
+            dictionary models.storage.classes
+            """
             print("** class doesn't exist **")
             return
 
         if len(args) < 2:
+            """
+            if we have two words after split()
+            """
             print("** instance id missing **")
             return
 
         objc_id = args[1]
+        """
+        assingne the second element from args to variables 
+        objc_id
+        """
         ky = "{}.{}".format(class_name, objc_id)
+        """
+        combinine the class_name & objc_id
+        """
         instances = models.storage.all()
+        """
+        retrieves all instance using models.storage.all()
+        """
 
         if ky not in instances:
             print("** no instance found **")
             return
 
         del instances[ky]
+        """
+        del = delete the instance associed with ky
+        """
         models.storage.save()
+        """
+        save the update for deletation
+        """
 
     def do_all(self, arg):
         """
         Prints string representations of all instances
+        it take one optional argument arg
         """
         args = arg.split()
+        """
+        split the args
+        and give heme to args
+        """
         instances = models.storage.all()
+        """
+        we retrieve all instance and we store hem in the variable
+        instance
+        """
 
         if len(args) < 1:
+            """
+            after split we have one word
+            """
             print([str(inst) for inst in instances.values()])
+            """
+            converting the instance to a string 
+            """
             return
 
         class_name = args[0]
