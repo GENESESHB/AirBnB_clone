@@ -6,7 +6,7 @@ This module contains the entry point of the command interpreter.
 import cmd
 import models
 from models.base_model import BaseModel
-
+from models.user import User
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
