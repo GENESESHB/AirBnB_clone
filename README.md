@@ -2,6 +2,39 @@
 # 0x00. AirBnB clone - The console
 [0x00. AirBnB clone - The console](https://intranet.alxswe.com/projects/263)
 
+
+Classes 🆑
+AirBnB utilizes the following classes:
+
+BaseModel	FileStorage	User	State	City	Amenity	Place	Review
+PUBLIC INSTANCE ATTRIBUTES	id
+created_at
+updated_at		Inherits from BaseModel	Inherits from BaseModel	Inherits from BaseModel	Inherits from BaseModel	Inherits from BaseModel	Inherits from BaseModel
+PUBLIC INSTANCE METHODS	save
+to_dict	all
+new
+save
+reload	""	""	""	""	""	""
+PUBLIC CLASS ATTRIBUTES			email
+password
+first_name
+last_name	name	state_id
+name	name	city_id
+user_id
+name
+description
+number_rooms
+number_bathrooms
+max_guest
+price_by_night
+latitude
+longitude
+amenity_ids	place_id
+user_id
+text
+PRIVATE CLASS ATTRIBUTES		file_path
+objects						
+
 # Resources
 <ul>
 <li><a href="https://docs.python.org/3.8/library/cmd.html" title="cmd module" target="_blank">cmd module</a> </li>
@@ -103,6 +136,12 @@ This method returns a dictionary representation of the instance's attributes. It
 That concludes the breakdown of the provided code. It defines a `BaseModel` class with methods for initialization, string representation, saving, and converting to a dictionary. It's likely part of a larger framework or application for managing and storing data objects.
 
 
+Storage 🛄
+The above classes are handled by the abstracted storage engine defined in the FileStorage class.
+
+Every time the backend is initialized,AirBnB instantiates an instance of FileStorage called storage. The storage object is loaded/re-loaded from any class instances stored in the JSON file file.json. As class instances are created, updated, or deleted, the storage object is used to register corresponding changes in the file.json.
+
+
 # my_file_storage-important
 
 ``
@@ -179,6 +218,8 @@ The `reload()` method deserializes the data from the JSON file specified by `__f
 
 I hope this breakdown helps you understand your code better! If you have any specific questions about certain parts of the code or would like further explanations, feel free to ask.
 
+
+Console 💻
 # command interpreter
 
 # do_create
