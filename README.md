@@ -3,7 +3,18 @@
 [0x00. AirBnB clone - The console](https://intranet.alxswe.com/projects/263)
 
 # Resources
-
+<ul>
+<li><a href="https://docs.python.org/3.8/library/cmd.html" title="cmd module" target="_blank">cmd module</a> </li>
+<li><a href="http://pymotw.com/2/cmd/" title="cmd module in depth" target="_blank">cmd module in depth</a></li>
+<li><strong>packages</strong> concept page</li>
+<li><a href="https://docs.python.org/3.8/library/uuid.html" title="uuid module" target="_blank">uuid module</a> </li>
+<li><a href="https://docs.python.org/3.8/library/datetime.html" title="datetime" target="_blank">datetime</a> </li>
+<li><a href="https://docs.python.org/3.8/library/unittest.html#module-unittest" title="unittest module" target="_blank">unittest module</a> </li>
+<li><a href="https://yasoob.me/2013/08/04/args-and-kwargs-in-python-explained/" title="args/kwargs" target="_blank">args/kwargs</a> </li>
+<li><a href="https://www.pythonsheets.com/notes/python-tests.html" title="Python test cheatsheet" target="_blank">Python test cheatsheet</a> </li>
+<li><a href="https://wiki.python.org/moin/CmdModule" title="cmd module wiki page" target="_blank">cmd module wiki page</a></li>
+<li><a href="https://realpython.com/python-testing/" title="python unittest" target="_blank">python unittest</a></li>
+</ul>
 
 # Explining & code
 
@@ -232,15 +243,13 @@ Finally, this line prints the `id` attribute of the newly created instance. This
 
 # to_show
 
-Bien sûr, voici une explication ligne par ligne du code fourni :
-
 ```python
 def do_show(self, arg):
     """
     Affiche la représentation sous forme de chaîne d'une instance
     """
 ```
-Cette méthode, `do_show`, est destinée à être appelée sur une instance d'une classe. Elle affiche la représentation en chaîne de caractères d'une instance particulière.
+This method, `do_show`, is intended to be called on an instance of a class. It displays the string representation of a specific instance.
 
 ```python
     args = arg.split()
@@ -248,45 +257,45 @@ Cette méthode, `do_show`, est destinée à être appelée sur une instance d'un
         print("** nom de classe manquant **")
         return
 ```
-Le code commence par diviser l'argument `arg` en une liste de mots (séparés par des espaces) à l'aide de la méthode `split()`. Ensuite, il vérifie si la liste `args` contient au moins un élément. Si ce n'est pas le cas, cela signifie qu'aucun nom de classe n'a été fourni en argument. Dans ce cas, il affiche un message d'erreur et retourne.
+The code begins by splitting the argument `arg` into a list of words (separated by spaces) using the `split()` method. Then, it checks if the `args` list contains at least one element. If it doesn't, it means that no class name was provided as an argument. In this case, it displays an error message and returns.
 
 ```python
     class_name = args[0]
 ```
-Il extrait le premier élément de la liste `args` et le stocke dans la variable `class_name`. Cela devrait être le nom de la classe de l'instance que vous souhaitez afficher.
+It extracts the first element from the `args` list and stores it in the variable `class_name`. This should be the name of the class of the instance you want to display.
 
 ```python
     if class_name not in models.storage.classes:
         print("** classe inexistante **")
         return
 ```
-Le code vérifie si le `class_name` est présent dans le dictionnaire `models.storage.classes`. Si ce n'est pas le cas, cela signifie que la classe n'existe pas (ou n'a pas été correctement définie). Dans ce cas, il affiche un message d'erreur et retourne.
+The code checks if the `class_name` is present in the `models.storage.classes` dictionary. If it's not the case, it means that the class doesn't exist (or hasn't been defined correctly). In this situation, it displays an error message and returns.
 
 ```python
     if len(args) < 2:
         print("** identifiant d'instance manquant **")
         return
 ```
-Ensuite, le code vérifie si la liste `args` contient au moins deux éléments. Si ce n'est pas le cas, cela signifie qu'aucun identifiant d'instance n'a été fourni en argument. Dans ce cas, il affiche un message d'erreur et retourne.
+Next, the code checks if the `args` list contains at least two elements. If it doesn't, it means that no instance identifier has been provided as an argument. In this case, it displays an error message and returns.
 
 ```python
     obj_id = args[1]
     key = "{}.{}".format(class_name, obj_id)
     instances = models.storage.all()
 ```
-Le deuxième élément de la liste `args` est extrait et stocké dans la variable `obj_id`. Ensuite, une clé est créée en combinant le nom de la classe et l'identifiant de l'instance. Enfin, toutes les instances sont obtenues à partir de `models.storage.all()` et stockées dans la variable `instances`.
+The second element of the `args` list is extracted and stored in the variable `obj_id`. Then, a key is created by combining the class name and the instance identifier. Finally, all instances are retrieved from `models.storage.all()` and stored in the variable `instances`.
 
 ```python
     if key not in instances:
         print("** aucune instance trouvée **")
         return
 ```
-Le code vérifie si la clé calculée (`key`) se trouve dans le dictionnaire `instances`. Si ce n'est pas le cas, cela signifie qu'aucune instance correspondante n'a été trouvée. Dans ce cas, il affiche un message d'erreur et retourne.
+The code checks if the calculated key (`key`) is present in the `instances` dictionary. If it's not the case, it means that no corresponding instance has been found. In this situation, it displays an error message and returns.
 
 ```python
     print(instances[key])
 ```
-Si tout est correct jusqu'à présent, cette ligne affiche la représentation en chaîne de caractères de l'instance correspondante en utilisant la clé `key` pour accéder au dictionnaire `instances`.
+If everything is correct up to this point, this line displays the string representation of the corresponding instance using the `key` to access the `instances` dictionary.
 
 # do_destroy
 
