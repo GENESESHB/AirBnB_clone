@@ -13,6 +13,16 @@ from models.amenity import Amenity
 from models.city import City
 from models.review import Review
 
+class_home = {
+    "BaseModel": BaseModel,
+    "User": User,
+    "Place": Place,
+    "Amenity": Amenity,
+    "City": City,
+    "Review": Review,
+    "State": State
+}
+
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
@@ -260,6 +270,22 @@ class HBNBCommand(cmd.Cmd):
         instance = instances[ky]
         setattr(instance, attribute_name, attribute_value)
         instance.save()
+
+    def default(self, arg):
+        cnt = 0
+        args = arg.split('.')
+        all_objects = models.storage.all()
+        if args[0] in  models.storage.classes and args[1] == "all()":
+            for ky in all_objects:
+                 class_name, objc = ky.split('.')
+                 if class_name == args[0]:
+                     print(all_objects[ky])
+        if args[0] in  models.storage.classes and args[1] == "count()":
+            for ky in all_objects:
+                class_name, objc = ky.split('.')
+                if class_name == args[0]:
+                    cnt += 1
+            print(cnt)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
