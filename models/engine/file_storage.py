@@ -17,7 +17,14 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-    classes = {"BaseModel": BaseModel}
+    classes = {"BaseModel": BaseModel,
+            "User": User,
+            "City": City,
+            "Place": Place,
+            "State": State,
+            "Review": Review,
+            "Amenity": Amenity
+            }
 
     '''
     Define all the dictionary objects
