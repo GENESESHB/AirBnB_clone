@@ -14,8 +14,6 @@ AirBnB utilizes the following classes:
 | **PRIVATE CLASS ATTRIBUTES** | | `file_path`<br>`objects` | | | | | | |
 
 
-# part_0
-![console&json](https://edin93.github.io/assets/img/airbnb_clone_architecture.png)
 
 # Resources
 <ul>
