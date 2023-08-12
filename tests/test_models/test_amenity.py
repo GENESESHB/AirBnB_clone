@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+defines the unittest for amenity
+"""
 import unittest
 from models.amenity import Amenity
 from datetime import datetime
@@ -48,14 +51,14 @@ class TestAmenity(unittest.TestCase):
         self.assertEqual(loaded_amenity.name, self.amenity.name)
 
     def test_updated_at_after_save(self):
-        a = Amenity()
-        initial_updated_at = a.updated_at
-        a.save()
-        self.assertNotEqual(initial_updated_at, a.updated_at)
+        am = Amenity()
+        initial_updated_at = am.updated_at
+        am.save()
+        self.assertNotEqual(initial_updated_at, am.updated_at)
 
     def test_updated_at_type_after_save(self):
-        a = Amenity()
-        a.save()
+        j = Amenity()
+        j.save()
         self.assertIsInstance(a.updated_at, datetime)
 
 if __name__ == "__main__":
