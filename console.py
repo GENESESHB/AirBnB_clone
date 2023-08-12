@@ -316,7 +316,7 @@ class HBNBCommand(cmd.Cmd):
             command_function = command_dict[command]
             command_function(f"{class_name} {arguments}")
         else:
-            print("Invalid command")
+            return
 
 
 if __name__ == '__main__':
