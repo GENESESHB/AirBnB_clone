@@ -27,7 +27,8 @@ class BaseModel:
 
     '''return The string of the BaseModel'''
     def __str__(self):
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(self.__class__.__name__,\
+                self.id, self.__dict__)
 
     '''save the date of update of the datetime'''
     def save(self):
