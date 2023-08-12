@@ -5,7 +5,8 @@ import shlex
 import models
 from models.base_model import BaseModel
 
-list_class={"BaseModel"}
+list_class = {"BaseModel"}
+
 
 def split_input(txt):
     """split the txt into a list of arg"""
@@ -14,10 +15,11 @@ def split_input(txt):
     else:
         return None
 
+
 def check_input(arg):
     """ Parse the argument, and then checks if the class name is valid"""
-    larg=split_input(arg)
-    if larg == None:
+    larg = split_input(arg)
+    if larg is None:
         print("** class name missing **")
         "return False"
     elif larg[0] not in list_class:
@@ -25,7 +27,7 @@ def check_input(arg):
         "return False"
     else:
         return larg
-        
+
 
 class HBNBCommand(cmd.Cmd):
     """Command interpreter for HBNB project."""
@@ -44,20 +46,20 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Do nothing on empty line + ENTER."""
         pass
-    
+
     def do_create(self, arg):
         """create a new instance of the specified class."""
         larg = check_input(arg)
         if larg:
             new_instance = globals()[larg[0]]()
             print(new_instance.id)
-    
+
     def do_show(self, arg):
         """Show details of an instance of the specified class"""
         larg = check_input(arg)
         if larg:
             print(larg[0])
-    
+
     def do_destroy(self, arg):
         """Delete an instance of the specified class"""
         larg = check_input(arg)
@@ -69,14 +71,13 @@ class HBNBCommand(cmd.Cmd):
         larg = check_input(arg)
         if larg:
             print(larg[0])
-    
+
     def do_all(self, arg):
         """Show details of all instances of the specified class"""
         larg = check_input(arg)
         if larg:
             print(larg[0])
 
-        
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-

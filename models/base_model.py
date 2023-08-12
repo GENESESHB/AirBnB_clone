@@ -6,6 +6,7 @@ import uuid
 from datetime import datetime
 import models
 
+
 class BaseModel:
     '''initialization of  the BaseModel -parent-class-'''
     def __init__(self, *args, **kwargs):

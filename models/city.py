@@ -5,6 +5,7 @@ define the calss City
 """
 from models.base_model import BaseModel
 
+
 class City(BaseModel):
     """
     the attributes for class City
@@ -12,4 +13,3 @@ class City(BaseModel):
     """
     state_id = ""
     name = ""
-

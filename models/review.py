@@ -6,6 +6,7 @@ and his attributes
 """
 from models.base_model import BaseModel
 
+
 class Review(BaseModel):
     """
     defines all attributes and inheritance from
@@ -14,4 +15,3 @@ class Review(BaseModel):
     place_id = ""
     text = ""
     user_id = ""
-

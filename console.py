@@ -24,6 +24,7 @@ class_home = {
     "State": State
 }
 
+
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
@@ -176,7 +177,7 @@ class HBNBCommand(cmd.Cmd):
 
         objc_id = args[1]
         """
-        assingne the second element from args to variables 
+        assingne the second element from args to variables
         objc_id
         """
         ky = "{}.{}".format(class_name, objc_id)
@@ -223,7 +224,7 @@ class HBNBCommand(cmd.Cmd):
             """
             print([str(inst) for inst in instances.values()])
             """
-            converting the instance to a string 
+            converting the instance to a string
             """
             return
 
@@ -233,8 +234,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        filtered_instances = [str(inst) for ky, inst in instances.items() if ky.startswith(class_name + ".")]
-        print(filtered_instances)
+        f_ins = [str(inst) for ky, inst in instances.items() if ky.startswith(class_name + ".")]
+        print(f_ins)
 
     def do_update(self, arg):
         """
@@ -282,19 +283,19 @@ class HBNBCommand(cmd.Cmd):
         cnt = 0
         args = arg.split('.')
         all_objects = models.storage.all()
-        if args[0] in  models.storage.classes and args[1] == "all()":
+        if args[0] in models.storage.classes and args[1] == "all()":
             for ky in all_objects:
-                 class_name, objc = ky.split('.')
-                 if class_name == args[0]:
-                     print(all_objects[ky])
-        if args[0] in  models.storage.classes and args[1] == "count()":
+                class_name, objc = ky.split('.')
+                if class_name == args[0]:
+                    print(all_objects[ky])
+        if args[0] in models.storage.classes and args[1] == "count()":
             for ky in all_objects:
                 class_name, objc = ky.split('.')
                 if class_name == args[0]:
                     cnt += 1
             print(cnt)
             return
-        
+
         command_dict = {
             "show": self.do_show,
             "destroy": self.do_destroy,
@@ -321,4 +322,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-

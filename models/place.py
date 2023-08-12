@@ -5,6 +5,7 @@ defines the class Place
 """
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """
     define all attributes and inheritance from BaseModel

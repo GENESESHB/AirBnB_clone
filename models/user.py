@@ -5,6 +5,7 @@ the class for user
 """
 from models.base_model import BaseModel
 
+
 class User(BaseModel):
     """
     User class
@@ -15,4 +16,3 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
-
