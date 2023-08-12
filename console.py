@@ -315,8 +315,8 @@ class HBNBCommand(cmd.Cmd):
         argu = cmnd_parts[1].rstrip(")").strip('"')
 
         if class_name in models.storage.classes and command in cmnd_dict:
-            comnd_function = command_dict[command]
-            comnd_function(f"{class_name} {arguments}")
+            comnd_function = cmnd_dict[command]
+            comnd_function(f"{class_name} {argu}")
         else:
             return
 
