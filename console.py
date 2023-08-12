@@ -234,7 +234,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        f_ins = [str(inst) for ky, inst in instances.items() if ky.startswith(class_name + ".")]
+        f_ins = [str(inst) for ky, inst in instances.items()
+                 if ky.startswith(class_name + ".")]
         print(f_ins)
 
     def do_update(self, arg):
