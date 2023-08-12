@@ -293,6 +293,30 @@ class HBNBCommand(cmd.Cmd):
                 if class_name == args[0]:
                     cnt += 1
             print(cnt)
+            return
+        
+        command_dict = {
+            "show": self.do_show,
+            "destroy": self.do_destroy,
+            "update": self.do_update,
+            # Add more commands here...
+        }
+
+        args = arg.split('.')
+        if len(args) != 2:
+            print("Invalid command format")
+            return
+
+        class_name, command_with_args = args
+        command_parts = command_with_args.split("(")
+        command = command_parts[0]
+        arguments = command_parts[1].rstrip(")").strip('"')
+
+        if class_name in models.storage.classes and command in command_dict:
+            command_function = command_dict[command]
+            command_function(f"{class_name} {arguments}")
+        else:
+            print("Invalid command")
 
 
 if __name__ == '__main__':
