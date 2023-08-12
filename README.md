@@ -14,7 +14,8 @@ AirBnB utilizes the following classes:
 | **PRIVATE CLASS ATTRIBUTES** | | `file_path`<br>`objects` | | | | | | |
 
 
-![part_1](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230812%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230812T154044Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=ea0d5c42691e872f64c1589da5b8f6abf32236887632676f7d52c223e165428f)
+# part_0
+![console&json](https://edin93.github.io/assets/img/airbnb_clone_architecture.png)
 
 # Resources
 <ul>
