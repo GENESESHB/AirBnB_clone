@@ -304,6 +304,7 @@ class HBNBCommand(cmd.Cmd):
                 instance = instances[ky]
                 for key, value in eval(args[2]).items():
                     setattr(instance, key, value)
+                instance.save()
 
     def default(self, arg):
         cnt = 0
