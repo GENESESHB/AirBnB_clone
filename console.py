@@ -251,7 +251,6 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on class name, id, attribute, and value
         """
         args = arg.split()
-        args = remove_extra_characters(args)
         if len(args) < 1:
             print("** class name missing **")
             return
