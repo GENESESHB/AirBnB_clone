@@ -294,11 +294,11 @@ class HBNBCommand(cmd.Cmd):
             attribute_value = args[3]
             instance = instances[ky]
             setattr(instance, attribute_name, attribute_value)
+            instance.save()
         else:
             instance = instances[ky]
             for key, value in eval(args[2]).items():
                 setattr(instance, key, value)
-        instance.save()
 
     def default(self, arg):
         cnt = 0
