@@ -286,10 +286,10 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
             return
 
-        if len(args) < 4 and type(eval(args[2])) != dict:
+        if len(args) < 4:
             print("** value missing **")
             return
-        if False:
+        if type(eval(args[2])) == dict:
             instance = instances[ky]
             for key, value in eval(args[2]).items():
                 setattr(instance, key, value)
