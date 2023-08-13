@@ -15,20 +15,11 @@ from models.city import City
 from models.review import Review
 
 
-def tokenize_input(arg):
-    """handle different cases involving curly braces {}
-    and square brackets []"""
-    indx_curly_brace = arg.find('{')
-    curly_braces = arg.find('[')
-    if indx_curly_brace != -1:
-        result = [i.strip(",") for i in arg[:indx_curly_brace].split()]
-        result.append(arg[indx_curly_brace:])
-    elif curly_braces != -1:
-        result = [i.strip(",") for i in arg[:curly_braces].split()]
-        result.append(arg[curly_braces:])
-    else:
-        result = [i.strip(",") for i in arg.split()]
-    return result
+def remove_extra_characters(args):
+    """remove the commas using the replace function"""
+    for i in range(len(args)):
+        args[i] = args[i].replace(',', '')
+    return args
 
 
 class_home = {
@@ -259,7 +250,8 @@ class HBNBCommand(cmd.Cmd):
         """
         Updates an instance based on class name, id, attribute, and value
         """
-        args = tokenize_input(arg)
+        args = arg.split()
+        args = remove_extra_characters(args)
         if len(args) < 1:
             print("** class name missing **")
             return
@@ -286,18 +278,15 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
             return
 
-        if len(args) < 4 and type(eval(args[2])) != dict:
+        if len(args) < 4:
             print("** value missing **")
             return
-        if len(args) == 4:
-            attribute_name = args[2]
-            attribute_value = args[3]
-            instance = instances[ky]
-            setattr(instance, attribute_name, attribute_value)
-        elif type(eval(args[2])) == dict:
-            instance = instances[ky]
-            for key, value in eval(args[2]).items():
-                setattr(instance, key, value)
+
+        attribute_name = args[2]
+        attribute_value = args[3]
+
+        instance = instances[ky]
+        setattr(instance, attribute_name, attribute_value)
         instance.save()
 
     def default(self, arg):
@@ -332,7 +321,7 @@ class HBNBCommand(cmd.Cmd):
         class_name, cmnd_with_args = args
         cmnd_parts = cmnd_with_args.split("(")
         command = cmnd_parts[0]
-        argu = cmnd_parts[1].rstrip(")")
+        argu = cmnd_parts[1].rstrip(")").strip('"')
 
         if class_name in models.storage.classes and command in cmnd_dict:
             comnd_function = cmnd_dict[command]
