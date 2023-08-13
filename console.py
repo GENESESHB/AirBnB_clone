@@ -14,6 +14,14 @@ from models.amenity import Amenity
 from models.city import City
 from models.review import Review
 
+
+def remove_extra_characters(args):
+    """remove the commas using the replace function"""
+    for i in range(len(args)):
+        args[i] = args[i].replace(',', '')
+    return args
+
+
 class_home = {
     "BaseModel": BaseModel,
     "User": User,
@@ -243,6 +251,7 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on class name, id, attribute, and value
         """
         args = arg.split()
+        args = remove_extra_characters(args)
         if len(args) < 1:
             print("** class name missing **")
             return
