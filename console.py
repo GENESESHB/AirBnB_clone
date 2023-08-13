@@ -287,8 +287,11 @@ class HBNBCommand(cmd.Cmd):
             return
 
         if len(args) < 4:
-            print("** value missing **")
-            return
+            try:
+                type(eval(argl[2])) != dict
+            except NameError:
+                print("** value missing **")
+                return
         if len(args) < 4:
             attribute_name = args[2]
             attribute_value = args[3]
