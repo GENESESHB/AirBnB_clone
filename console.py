@@ -289,7 +289,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4 and type(eval(args[2])) != dict:
             print("** value missing **")
             return
-        if type(eval(args[2])) == dict:
+        if False:
             instance = instances[ky]
             for key, value in eval(args[2]).items():
                 setattr(instance, key, value)
