@@ -292,7 +292,8 @@ class HBNBCommand(cmd.Cmd):
             except NameError:
                 print("** value missing **")
                 return
-        if len(args) < 4:
+        if len(args) == 4:
+
             attribute_name = args[2]
             attribute_value = args[3]
             instance = instances[ky]
