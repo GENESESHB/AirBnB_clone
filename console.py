@@ -288,7 +288,7 @@ class HBNBCommand(cmd.Cmd):
 
         if len(args) < 4:
             try:
-                type(eval(argl[2])) != dict
+                type(eval(args[2])) != dict
             except NameError:
                 print("** value missing **")
                 return
