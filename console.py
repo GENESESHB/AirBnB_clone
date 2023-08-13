@@ -22,6 +22,13 @@ def remove_extra_characters(args):
     return args
 
 
+def remove_extra_characters(args):
+    """remove the commas using the replace function"""
+    for i in range(len(args)):
+        args[i] = args[i].replace(',', '')
+    return args
+
+
 class_home = {
     "BaseModel": BaseModel,
     "User": User,
@@ -250,8 +257,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Updates an instance based on class name, id, attribute, and value
         """
-        args = arg.split()
-        args = remove_extra_characters(args)
+        args = tokenize_input(arg)
         if len(args) < 1:
             print("** class name missing **")
             return
