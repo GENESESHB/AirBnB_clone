@@ -15,18 +15,20 @@ from models.city import City
 from models.review import Review
 
 
-def remove_extra_characters(args):
-    """remove the commas using the replace function"""
-    for i in range(len(args)):
-        args[i] = args[i].replace(',', '')
-    return args
-
-
-def remove_extra_characters(args):
-    """remove the commas using the replace function"""
-    for i in range(len(args)):
-        args[i] = args[i].replace(',', '')
-    return args
+def tokenize_input(arg):
+    """handle different cases involving curly braces {}
+    and square brackets []"""
+    indx_curly_brace = arg.find('{')
+    curly_braces = arg.find('[')
+    if indx_curly_brace != -1:
+        result = [i.strip(",") for i in arg[:indx_curly_brace].split()]
+        result.append(arg[indx_curly_brace:])
+    elif curly_braces != -1:
+        result = [i.strip(",") for i in arg[:curly_braces].split()]
+        result.append(arg[curly_braces:])
+    else:
+        result = [i.strip(",") for i in arg.split()]
+    return result
 
 
 class_home = {
@@ -257,7 +259,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Updates an instance based on class name, id, attribute, and value
         """
-        args = arg.split()
+        args = tokenize_input(arg)
         if len(args) < 1:
             print("** class name missing **")
             return
