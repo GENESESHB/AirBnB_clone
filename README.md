@@ -2,6 +2,10 @@
 # 0x00. AirBnB clone - The console
 [0x00. AirBnB clone - The console](https://intranet.alxswe.com/projects/263)
 
+<p align="center">
+  <img src="https://github.com/HeimerR/AirBnB_clone/raw/master/images/pipeline.png" alt="HolbertonBnB logo">
+</p>
+
 ## Classes :cl:
 
 AirBnB utilizes the following classes:
