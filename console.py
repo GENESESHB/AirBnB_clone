@@ -338,7 +338,7 @@ class HBNBCommand(cmd.Cmd):
         class_name, cmnd_with_args = args
         cmnd_parts = cmnd_with_args.split("(")
         command = cmnd_parts[0]
-        argu = cmnd_parts[1].rstrip(")").strip('"')
+        argu = cmnd_parts[1].rstrip(")")
 
         if class_name in models.storage.classes and command in cmnd_dict:
             comnd_function = cmnd_dict[command]
