@@ -2,7 +2,13 @@
 
 ![page_exp](https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step1.png)
 
-# building a page 
+# building a page
+# resources
+
+[Learn to Code HTML & CSS ](https://learn.shayhowe.com/html-css/building-your-first-web-page/)
+[Inline Styles in HTML](https://www.codecademy.com/article/html-inline-styles)
+[Specifics on CSS Specificity](https://css-tricks.com/specifics-on-css-specificity/)
+
 # tasks 
 
 # 0. Inline styling
